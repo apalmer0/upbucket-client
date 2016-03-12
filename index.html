@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>Example</title>
+
+      <script src="vendor.bundle.js" type="text/javascript" charset="utf-8" defer></script>
+      <script src="bundle.js" type="text/javascript" charset="utf-8" defer></script>
+    </head>
+    <body class="container-fluid">
+      <h1>Signup</h1>
+      <form id="signup" action="http://localhost:3000/sign-up" method="post">
+        <input type="text" name="credentials[email]" value="">
+        <input type="password" name="credentials[password]" value="">
+        <input type="Submit" name="submit" value="signup">
+      </form>
+      <h1>Signin</h1>
+      <form id="signup" action="http://localhost:3000/sign-in" method="post">
+        <input type="text" name="credentials[email]" value="">
+        <input type="password" name="credentials[password]" value="">
+        <input type="Submit" name="submit" value="signin">
+      </form>
+      <h1>upload</h1>
+      <form id="file-upload" action="http://localhost:3000/images" method="post" enctype="multipart/form-data">
+        <input type="text" name="image[comment]" value="">
+        <input type="file" name="image[file]" value="">
+        <input type="Submit" name="submit" value="Upload">
+      </form>
+    </body>
+</html>
