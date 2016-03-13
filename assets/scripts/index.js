@@ -9,8 +9,7 @@ require('./event-handlers');
 
 $(document).ready(() => {
 
-pageSetup.hidePageElements();
-
+  pageSetup.hidePageElements();
 
 
 });

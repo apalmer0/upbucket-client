@@ -52,15 +52,15 @@
           <img class="sidebar-logo" src="assets/images/Logo.png">
           <h5>file storage for idiots</h5>
           <div class="sidebar-options">
-            <div class="sidebar-option">
+            <div class="sidebar-option your-files">
               Your Files
             </div>
-            <div class="sidebar-option">
+            <div class="sidebar-option your-team">
               Your Team
             </div>
             <div class="action">
             </div>
-            <div class="sidebar-option">
+            <div class="sidebar-option upload-file">
               Upload File
             </div>
           </div>
@@ -73,7 +73,16 @@
                 Header > Level 1 > Level 2
               </span>
               <span class="user-info pull-right">
-                Andrew Palmer
+                <div class="dropdown logged-in">
+                  <button class="btn btn-link dropdown-toggle" type="button" id="main-navigation" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                    Andrew Palmer
+                    <span class="caret"></span>
+                  </button>
+                  <ul class="dropdown-menu" aria-labelledby="main-navigation">
+                    <li><a class="modal-button" data-toggle="modal" data-target="#changePasswordModal" href="#">Change password</a></li>
+                    <li><a id="log-out" href="#">Log out</a></li>
+                  </ul>
+                </div>
               </span>
             </div>
             <table class="file-storage">
@@ -382,57 +391,125 @@
           </div>
           <div class="content-body people-directory">
             <div class="profile-preview">
-              <img class="sidebar-logo" src="assets/images/Logo.png">
+              <img class="profile-logo" src="assets/images/Logo.png">
             </div>
             <div class="profile-preview">
+              <img class="profile-logo" src="assets/images/Logo.png">
             </div>
             <div class="profile-preview">
+              <img class="profile-logo" src="assets/images/Logo.png">
             </div>
             <div class="profile-preview">
+              <img class="profile-logo" src="assets/images/Logo.png">
             </div>
             <div class="profile-preview">
+              <img class="profile-logo" src="assets/images/Logo.png">
             </div>
             <div class="profile-preview">
+              <img class="profile-logo" src="assets/images/Logo.png">
             </div>
             <div class="profile-preview">
+              <img class="profile-logo" src="assets/images/Logo.png">
             </div>
             <div class="profile-preview">
+              <img class="profile-logo" src="assets/images/Logo.png">
             </div>
             <div class="profile-preview">
+              <img class="profile-logo" src="assets/images/Logo.png">
             </div>
             <div class="profile-preview">
+              <img class="profile-logo" src="assets/images/Logo.png">
             </div>
             <div class="profile-preview">
+              <img class="profile-logo" src="assets/images/Logo.png">
             </div>
             <div class="profile-preview">
+              <img class="profile-logo" src="assets/images/Logo.png">
             </div>
             <div class="profile-preview">
+              <img class="profile-logo" src="assets/images/Logo.png">
             </div>
             <div class="profile-preview">
+              <img class="profile-logo" src="assets/images/Logo.png">
             </div>
             <div class="profile-preview">
+              <img class="profile-logo" src="assets/images/Logo.png">
             </div>
             <div class="profile-preview">
+              <img class="profile-logo" src="assets/images/Logo.png">
             </div>
             <div class="profile-preview">
+              <img class="profile-logo" src="assets/images/Logo.png">
             </div>
             <div class="profile-preview">
+              <img class="profile-logo" src="assets/images/Logo.png">
             </div>
             <div class="profile-preview">
+              <img class="profile-logo" src="assets/images/Logo.png">
             </div>
             <div class="profile-preview">
+              <img class="profile-logo" src="assets/images/Logo.png">
             </div>
             <div class="profile-preview">
+              <img class="profile-logo" src="assets/images/Logo.png">
             </div>
             <div class="profile-preview">
+              <img class="profile-logo" src="assets/images/Logo.png">
             </div>
             <div class="profile-preview">
+              <img class="profile-logo" src="assets/images/Logo.png">
             </div>
             <div class="profile-preview">
+              <img class="profile-logo" src="assets/images/Logo.png">
+            </div>
+            <div class="profile-preview">
+              <img class="profile-logo" src="assets/images/Logo.png">
+            </div>
+            <div class="profile-preview">
+              <img class="profile-logo" src="assets/images/Logo.png">
+            </div>
+            <div class="profile-preview">
+              <img class="profile-logo" src="assets/images/Logo.png">
+            </div>
+            <div class="profile-preview">
+              <img class="profile-logo" src="assets/images/Logo.png">
             </div>
           </div>
         </div>
 
       </div>
+
+      <!-- vvvv Change password Modal vvvv -->
+      <div class="modal fade" id="changePasswordModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <form id="change-pw">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h2 class="modal-title" id="myModalLabel">Change password</h2>
+              </div>
+              <div class="modal-body">
+                <div class="form-group row">
+                  <label for="inputPassword5" class="col-sm-2 form-control-label">Old Password</label>
+                  <div class="col-sm-10">
+                    <input type="password" class="form-control" id="inputPassword5" placeholder="old password" name="passwords[old]" value="">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label for="inputPassword6" class="col-sm-2 form-control-label">New Password</label>
+                  <div class="col-sm-10">
+                    <input type="password" class="form-control" id="inputPassword6" placeholder="new password"name="passwords[new]" value="">
+                  </div>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                <button type="submit" name="submit" class="btn btn-primary modal-button">Save password</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <!-- ^^^^ Change password Modal ^^^^ -->
     </body>
 </html>

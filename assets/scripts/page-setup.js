@@ -3,8 +3,9 @@
 var hidePageElements = function hidePageElements() {
   $('.sign-up-partial').hide();
   $('.log-in-partial').hide();
-  $('.logged-out').hide();
-  $('.logged-in').show();
+  $('.people-directory').hide();
+  $('.logged-out').show();
+  $('.logged-in').hide();
 };
 
 var toggleLoggedIn = function toggleLoggedIn() {
@@ -13,8 +14,8 @@ var toggleLoggedIn = function toggleLoggedIn() {
 };
 
 var toggleLoggedOut = function toggleLoggedOut() {
-  $('.logged-out').show();
   $('.logged-in').hide();
+  $('.logged-out').show();
 };
 
 
