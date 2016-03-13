@@ -1,29 +1,387 @@
 <!DOCTYPE html>
 <html>
     <head>
-      <title>Example</title>
-
+      <title>upBucket</title>
+      <link rel='shortcut icon' href='assets/images/favicon.ico' type='image/x-icon'/ >
       <script src="vendor.bundle.js" type="text/javascript" charset="utf-8" defer></script>
       <script src="bundle.js" type="text/javascript" charset="utf-8" defer></script>
+      <link href='https://fonts.googleapis.com/css?family=Syncopate' rel='stylesheet' type='text/css'>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
     <body class="container-fluid">
-      <h1>Signup</h1>
-      <form id="signup" action="http://localhost:3000/sign-up" method="post">
-        <input type="text" name="credentials[email]" value="">
-        <input type="password" name="credentials[password]" value="">
-        <input type="Submit" name="submit" value="signup">
-      </form>
-      <h1>Signin</h1>
-      <form id="signup" action="http://localhost:3000/sign-in" method="post">
-        <input type="text" name="credentials[email]" value="">
-        <input type="password" name="credentials[password]" value="">
-        <input type="Submit" name="submit" value="signin">
-      </form>
-      <h1>upload</h1>
-      <form id="file-upload" action="http://localhost:3000/images" method="post" enctype="multipart/form-data">
-        <input type="text" name="image[comment]" value="">
-        <input type="file" name="image[file]" value="">
-        <input type="Submit" name="submit" value="Upload">
-      </form>
+      <div class="logged-out">
+        <img class="site-logo" src="assets/images/Logo.png"></a>
+        <h4>file storage for idiots</h4>
+        <div class="welcome">
+          <button type="button" class="btn btn-primary sign-up-button">sign up</button>
+          <button type="button" class="btn btn-primary sign-in-button">log in</button>
+        </div>
+        <div class="sign-up-partial">
+          <h1>Signup</h1>
+          <form id="signup">
+            <div>
+              <input type="text" class="custom-input-form" name="credentials[email]" value="" placeholder="email address">
+            </div>
+            <div>
+              <input type="password" class="custom-input-form" name="credentials[password]" value="" placeholder="password">
+            </div>
+            <div>
+              <button type="button" class="btn btn-primary back-to-welcome-button">cancel</button>
+              <input type="submit" class="btn btn-primary" name="submit" value="signup">
+            </div>
+          </form>
+        </div>
+        <div class="log-in-partial">
+          <h1>log in</h1>
+          <form id="log-in">
+            <div>
+              <input type="text" class="custom-input-form" name="credentials[email]" value="" placeholder="email address">
+            </div>
+            <div>
+              <input type="password" class="custom-input-form" name="credentials[password]" value="" placeholder="password">
+            </div>
+            <div>
+              <button type="button" class="btn btn-primary back-to-welcome-button">cancel</button>
+              <input type="submit" class="btn btn-primary" name="submit" value="log in">
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="logged-in">
+
+        <div class="sidebar col-md-3">
+          <img class="sidebar-logo" src="assets/images/Logo.png"></a>
+          <div class="sidebar-options">
+            <div class="sidebar-option">
+              Your Files
+            </div>
+            <div class="sidebar-option">
+              Your Team
+            </div>
+            <div class="action">
+            </div>
+            <div class="sidebar-option">
+              Upload File
+            </div>
+          </div>
+          </ul>
+        </div>
+        <div class="content col-md-9">
+          <div class="content-header">
+            <div class="row">
+              <span class="header">
+                Header > Level 1 > Level 2
+              </span>
+              <span class="user-info pull-right">
+                Andrew Palmer
+              </span>
+            </div>
+            <table>
+              <tr>
+                <th>Filename</th>
+                <th>Created</th>
+                <th>Modified</th>
+                <th>Owner</th>
+                <th>Tags</th>
+                <th>Options</th>
+                <th>Shared with:</th>
+              </tr>
+            </table>
+          </div>
+          <div class="content-body">
+            <table>
+              <tr>
+                <td>Filename</td>
+                <td>Created</td>
+                <td>Modified</td>
+                <td>Owner</td>
+                <td>Tags</td>
+                <td>Options</td>
+                <td>Shared with</td>
+              </tr>
+              <tr>
+                <td>Filename</td>
+                <td>Created</td>
+                <td>Modified</td>
+                <td>Owner</td>
+                <td>Tags</td>
+                <td>Options</td>
+                <td>Shared with</td>
+              </tr>
+              <tr>
+                <td>Filename</td>
+                <td>Created</td>
+                <td>Modified</td>
+                <td>Owner</td>
+                <td>Tags</td>
+                <td>Options</td>
+                <td>Shared with</td>
+              </tr>
+              <tr>
+                <td>Filename</td>
+                <td>Created</td>
+                <td>Modified</td>
+                <td>Owner</td>
+                <td>Tags</td>
+                <td>Options</td>
+                <td>Shared with</td>
+              </tr>
+              <tr>
+                <td>Filename</td>
+                <td>Created</td>
+                <td>Modified</td>
+                <td>Owner</td>
+                <td>Tags</td>
+                <td>Options</td>
+                <td>Shared with</td>
+              </tr>
+              <tr>
+                <td>Filename</td>
+                <td>Created</td>
+                <td>Modified</td>
+                <td>Owner</td>
+                <td>Tags</td>
+                <td>Options</td>
+                <td>Shared with</td>
+              </tr>
+              <tr>
+                <td>Filename</td>
+                <td>Created</td>
+                <td>Modified</td>
+                <td>Owner</td>
+                <td>Tags</td>
+                <td>Options</td>
+                <td>Shared with</td>
+              </tr>
+              <tr>
+                <td>Filename</td>
+                <td>Created</td>
+                <td>Modified</td>
+                <td>Owner</td>
+                <td>Tags</td>
+                <td>Options</td>
+                <td>Shared with</td>
+              </tr>
+              <tr>
+                <td>Filename</td>
+                <td>Created</td>
+                <td>Modified</td>
+                <td>Owner</td>
+                <td>Tags</td>
+                <td>Options</td>
+                <td>Shared with</td>
+              </tr>
+              <tr>
+                <td>Filename</td>
+                <td>Created</td>
+                <td>Modified</td>
+                <td>Owner</td>
+                <td>Tags</td>
+                <td>Options</td>
+                <td>Shared with</td>
+              </tr>
+              <tr>
+                <td>Filename</td>
+                <td>Created</td>
+                <td>Modified</td>
+                <td>Owner</td>
+                <td>Tags</td>
+                <td>Options</td>
+                <td>Shared with</td>
+              </tr>
+              <tr>
+                <td>Filename</td>
+                <td>Created</td>
+                <td>Modified</td>
+                <td>Owner</td>
+                <td>Tags</td>
+                <td>Options</td>
+                <td>Shared with</td>
+              </tr>
+              <tr>
+                <td>Filename</td>
+                <td>Created</td>
+                <td>Modified</td>
+                <td>Owner</td>
+                <td>Tags</td>
+                <td>Options</td>
+                <td>Shared with</td>
+              </tr>
+              <tr>
+                <td>Filename</td>
+                <td>Created</td>
+                <td>Modified</td>
+                <td>Owner</td>
+                <td>Tags</td>
+                <td>Options</td>
+                <td>Shared with</td>
+              </tr>
+              <tr>
+                <td>Filename</td>
+                <td>Created</td>
+                <td>Modified</td>
+                <td>Owner</td>
+                <td>Tags</td>
+                <td>Options</td>
+                <td>Shared with</td>
+              </tr>
+              <tr>
+                <td>Filename</td>
+                <td>Created</td>
+                <td>Modified</td>
+                <td>Owner</td>
+                <td>Tags</td>
+                <td>Options</td>
+                <td>Shared with</td>
+              </tr>
+              <tr>
+                <td>Filename</td>
+                <td>Created</td>
+                <td>Modified</td>
+                <td>Owner</td>
+                <td>Tags</td>
+                <td>Options</td>
+                <td>Shared with</td>
+              </tr>
+              <tr>
+                <td>Filename</td>
+                <td>Created</td>
+                <td>Modified</td>
+                <td>Owner</td>
+                <td>Tags</td>
+                <td>Options</td>
+                <td>Shared with</td>
+              </tr>
+              <tr>
+                <td>Filename</td>
+                <td>Created</td>
+                <td>Modified</td>
+                <td>Owner</td>
+                <td>Tags</td>
+                <td>Options</td>
+                <td>Shared with</td>
+              </tr>
+              <tr>
+                <td>Filename</td>
+                <td>Created</td>
+                <td>Modified</td>
+                <td>Owner</td>
+                <td>Tags</td>
+                <td>Options</td>
+                <td>Shared with</td>
+              </tr>
+              <tr>
+                <td>Filename</td>
+                <td>Created</td>
+                <td>Modified</td>
+                <td>Owner</td>
+                <td>Tags</td>
+                <td>Options</td>
+                <td>Shared with</td>
+              </tr>
+              <tr>
+                <td>Filename</td>
+                <td>Created</td>
+                <td>Modified</td>
+                <td>Owner</td>
+                <td>Tags</td>
+                <td>Options</td>
+                <td>Shared with</td>
+              </tr>
+              <tr>
+                <td>Filename</td>
+                <td>Created</td>
+                <td>Modified</td>
+                <td>Owner</td>
+                <td>Tags</td>
+                <td>Options</td>
+                <td>Shared with</td>
+              </tr>
+              <tr>
+                <td>Filename</td>
+                <td>Created</td>
+                <td>Modified</td>
+                <td>Owner</td>
+                <td>Tags</td>
+                <td>Options</td>
+                <td>Shared with</td>
+              </tr>
+              <tr>
+                <td>Filename</td>
+                <td>Created</td>
+                <td>Modified</td>
+                <td>Owner</td>
+                <td>Tags</td>
+                <td>Options</td>
+                <td>Shared with</td>
+              </tr>
+              <tr>
+                <td>Filename</td>
+                <td>Created</td>
+                <td>Modified</td>
+                <td>Owner</td>
+                <td>Tags</td>
+                <td>Options</td>
+                <td>Shared with</td>
+              </tr>
+              <tr>
+                <td>Filename</td>
+                <td>Created</td>
+                <td>Modified</td>
+                <td>Owner</td>
+                <td>Tags</td>
+                <td>Options</td>
+                <td>Shared with</td>
+              </tr>
+              <tr>
+                <td>Filename</td>
+                <td>Created</td>
+                <td>Modified</td>
+                <td>Owner</td>
+                <td>Tags</td>
+                <td>Options</td>
+                <td>Shared with</td>
+              </tr>
+              <tr>
+                <td>Filename</td>
+                <td>Created</td>
+                <td>Modified</td>
+                <td>Owner</td>
+                <td>Tags</td>
+                <td>Options</td>
+                <td>Shared with</td>
+              </tr>
+              <tr>
+                <td>Filename</td>
+                <td>Created</td>
+                <td>Modified</td>
+                <td>Owner</td>
+                <td>Tags</td>
+                <td>Options</td>
+                <td>Shared with</td>
+              </tr>
+              <tr>
+                <td>Filename</td>
+                <td>Created</td>
+                <td>Modified</td>
+                <td>Owner</td>
+                <td>Tags</td>
+                <td>Options</td>
+                <td>Shared with</td>
+              </tr>
+              <tr>
+                <td>Filename</td>
+                <td>Created</td>
+                <td>Modified</td>
+                <td>Owner</td>
+                <td>Tags</td>
+                <td>Options</td>
+                <td>Shared with</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+
+      </div>
     </body>
 </html>

@@ -1,2 +1,164 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
+
+$background-color: #000;
+$footer-background: #292c2f;
+$font-color: #006ba6;
+$footer-company-name: #8f9296;
+$footer-glyph-inset: #33383b;
+$footer-email-link: #5383d3;
+$footer-company-about: #92999f;
+
+$black: #000;
+$off-black: #4d4848;
+$gray: #282828;
+$light-gray: #d3d3d3;
+$white: #fff;
+$off-white: #f5f5f5;
+$red: #bd2222;
+$warning-red: #c00;
+$danger-red: #800000;
+$orange: #f90;
+$yellow: #ff0;
+$green: #31a234;
+$blue: #0198e1;
+$porch-blue: #006ba6;
+$purple: #90c;
+$pink: #f6f;
+
+html,
+body {
+  color: $off-black;
+  height: 100%;
+  width: 100%;
+}
+
+.logged-out {
+  font-family: 'Syncopate', sans-serif;
+  text-align: center;
+
+  h4 {
+    margin-top: -10px;
+  }
+
+  .btn-primary {
+    background-color: $white;
+    border: 1px solid $gray;
+    border-radius: 0;
+    color: $gray;
+  }
+
+  .btn-primary:last-child {
+    margin-left: 40px;
+  }
+
+  .btn-primary:hover {
+    background-color: $red;
+    border: 1px solid $gray;
+    color: $white;
+  }
+}
+
+.logged-in {
+  height: 100%;
+}
+
+.site-logo {
+  margin: 0 auto;
+  margin-top: 10%;
+  width: 40%;
+}
+
+.sidebar-logo {
+  margin: 0 auto;
+  margin-top: 10%;
+  width: 100%;
+}
+
+.sidebar {
+  border-right: 1px solid $light-gray;
+  height: 100%;
+  padding: 1%;
+  position: fixed;
+}
+
+.sidebar-options {
+  font-family: 'Syncopate', sans-serif;
+  font-size: 100%;
+  list-style-type: none;
+  margin-top: 10%;
+  text-align: center;
+}
+
+.sidebar-option {
+  cursor: pointer;
+  margin-top: 25%;
+}
+
+.action {
+  border-top: 1px solid $red;
+  margin-top: 25%;
+}
+
+.sidebar-option:hover {
+  color: $red;
+  font-weight: bold;
+}
+
+.content {
+  margin-left: 25%;
+}
+
+.content-header {
+  background-color: $white;
+  padding-left: 3%;
+  padding-right: 3%;
+  padding-top: 3%;
+  position: fixed;
+  width: 70%;
+}
+
+.content-body {
+  height: 100%;
+  margin-top: 14%;
+  padding-left: 3%;
+  padding-right: 3%;
+}
+
+.header {
+  color: $red;
+  font-family: 'Syncopate', sans-serif;
+  font-size: 130%;
+}
+
+.user-info {
+  font-family: 'Syncopate', sans-serif;
+  font-size: 80%;
+}
+
+table {
+  margin-top: 3%;
+  width: 100%;
+}
+
+
+th {
+  border-bottom: 1px solid $light-gray;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 5px;
+}
+
+.log-in-partial,
+.sign-up-partial {
+  margin: 0 auto;
+  width: 40%;
+}
+
+.custom-input-form {
+  padding: 5px;
+  width: 100%;
+}
