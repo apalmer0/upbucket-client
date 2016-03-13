@@ -1,8 +1,8 @@
 'use strict';
 
 var hidePageElements = function hidePageElements() {
-  $('.sign-up').hide();
-  $('.log-in').hide();
+  $('.sign-up-partial').hide();
+  $('.log-in-partial').hide();
   $('.logged-out').hide();
   $('.logged-in').show();
 };

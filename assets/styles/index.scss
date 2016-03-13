@@ -61,6 +61,12 @@ body {
 
 .logged-in {
   height: 100%;
+
+  h5 {
+    font-family: 'Syncopate', sans-serif;
+    margin-top: -5px;
+    text-align: center;
+  }
 }
 
 .site-logo {
@@ -106,11 +112,13 @@ body {
 }
 
 .content {
+  height: 100%;
   margin-left: 25%;
 }
 
 .content-header {
   background-color: $white;
+  border-bottom: 1px solid $light-gray;
   padding-left: 3%;
   padding-right: 3%;
   padding-top: 3%;
@@ -143,7 +151,6 @@ table {
 
 
 th {
-  border-bottom: 1px solid $light-gray;
   border-collapse: collapse;
 }
 
@@ -161,4 +168,26 @@ td {
 .custom-input-form {
   padding: 5px;
   width: 100%;
+}
+
+.file-storage {
+  display: none;
+}
+
+.people-directory {
+  // display: none;
+  height: 100%;
+}
+
+.profile-preview {
+  border: 1px solid $light-gray;
+  float: left;
+  height: 20%;
+  margin: .25%;
+  width: 20%;
+}
+
+.profile-preview:hover {
+  background-color: $red;
+  opacity: .5;
 }

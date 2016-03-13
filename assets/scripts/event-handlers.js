@@ -4,18 +4,18 @@ let authentication = require('./authentication');
 
 $('.sign-up-button').on('click', function(){
   $('.welcome').hide();
-  $('.sign-up').show();
+  $('.sign-up-partial').show();
 });
 
 $('.sign-in-button').on('click', function(){
   $('.welcome').hide();
-  $('.log-in').show();
+  $('.log-in-partial').show();
 });
 
 $('.back-to-welcome-button').on('click', function(){
   $('.welcome').show();
-  $('.sign-up').hide();
-  $('.log-in').hide();
+  $('.sign-up-partial').hide();
+  $('.log-in-partial').hide();
 });
 
 
