@@ -5,7 +5,6 @@ let pageSetup = require('./page-setup');
 
 let signUp = function signUp(event) {
   event.preventDefault();
-  console.log('awesome.');
   var formData = new FormData(event.target);
   console.log('starting signup');
   $.ajax({
@@ -25,7 +24,7 @@ let signUp = function signUp(event) {
 
 let logIn = function logIn(event) {
   event.preventDefault();
-  console.log('awesome.');
+  console.log('starting login.');
   var formData = new FormData(event.target);
   $.ajax({
     url: globalVariables.myApp.baseUrl + '/sign-in',
@@ -34,7 +33,10 @@ let logIn = function logIn(event) {
     processData: false,
     data: formData,
   }).done(function (user) {
+    console.log('logged in');
     globalVariables.myApp.user = user;
+    console.log(user);
+    console.log('theres the user');
     pageSetup.toggleLoggedIn();
   }).fail(function (jqxhr) {
     console.error(jqxhr);
