@@ -1,6 +1,7 @@
 'use strict';
 
 let authentication = require('./authentication');
+let images = require('./images');
 
 $('.sign-up-button').on('click', function(){
   $('.welcome').hide();
@@ -18,11 +19,6 @@ $('.back-to-welcome-button').on('click', function(){
   $('.log-in-partial').hide();
 });
 
-$('.your-files').on('click', function() {
-  $('.file-storage').show();
-  $('.people-directory').hide();
-});
-
 $('.your-team').on('click', function() {
   $('.people-directory').show();
   $('.file-storage').hide();
@@ -38,6 +34,14 @@ $('#log-in').on('submit',function(event) {
 
 $('#log-out').on('click',function(event) {
   authentication.logOut(event);
+});
+
+$('.your-files').on('click', function(event) {
+  images.getImages(event);
+});
+
+$('#file-upload').on('submit',function(event) {
+  images.imageUpload(event);
 });
 
 
