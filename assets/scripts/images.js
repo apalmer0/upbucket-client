@@ -48,8 +48,31 @@ let imageUpload = function imageUpload(event) {
   });
 };
 
+let deleteImage = function deleteImage(event) {
+  event.preventDefault();
+  console.log('starting delete');
+  let imageId = event.target.dataset.imageId;
+  $.ajax({
+    // why do i have to access these via myApp.user.user?
+    url: globalVariables.myApp.baseUrl + '/images/' + imageId,
+    headers: {
+      Authorization: 'Token token=' + globalVariables.myApp.user.user.token,
+    },
+    method: 'DELETE',
+    contentType: false,
+    processData: false,
+  }).done(function (data) {
+    console.log('image deleted');
+    console.log(data);
+    $('.image-number-'+imageId).remove();
+  }).fail(function (jqxhr) {
+    console.log('well that didn\'t work...');
+    console.error(jqxhr);
+  });
+};
 
 module.exports = {
   getImages,
-  imageUpload
+  imageUpload,
+  deleteImage
 };
