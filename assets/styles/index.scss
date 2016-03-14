@@ -60,6 +60,33 @@ body {
   }
 }
 
+.upload-form {
+  margin-top: 5%;
+}
+
+.upload-file {
+  margin-top: 10%;
+}
+
+.upload-file-button {
+  background-color: $white;
+  border: 1px solid $gray;
+  border-radius: 0;
+  color: $gray;
+  margin-top: 10px;
+  width: 100%;
+}
+
+.upload-file-button:hover {
+  background-color: $red;
+  border: 1px solid $gray;
+  color: $white;
+}
+
+.upload-comment:hover {
+  border: 1px solid $red;
+}
+
 .logged-in {
   height: 100%;
 

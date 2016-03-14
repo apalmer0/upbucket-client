@@ -1,6 +1,7 @@
 'use strict';
 
 let globalVariables = require('./global-variables');
+let pageChanges = require('./page-changes');
 
 let getImages = function getImages(event) {
   event.preventDefault();
@@ -29,6 +30,7 @@ let imageUpload = function imageUpload(event) {
   event.preventDefault();
   var formData = new FormData(event.target);
   console.log('starting imageUpload');
+  console.log(event.target);
   $.ajax({
     url: globalVariables.myApp.baseUrl + '/images',
     method: 'POST',
@@ -38,8 +40,10 @@ let imageUpload = function imageUpload(event) {
   }).done(function (data) {
     console.log('imageUpload success');
     console.log(data);
-    console.log('there\'s your data!');
+    $('.file-upload').val('');
+    pageChanges.displayMessage('.file-upload-success');
   }).fail(function (jqxhr) {
+    console.log('shit\'s on fire, yo');
     console.error(jqxhr);
   });
 };

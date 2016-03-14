@@ -59,14 +59,16 @@
               Your Team
             </div>
             <div class="action">
-            </div>
-            <div class="sidebar-option upload-file">
               Upload File
+            </div>
+            <div class="upload-file">
               <form id="file-upload" enctype="multipart/form-data">
-                <input type="text" name="image[comment]" value="">
-                <input type="file" name="image[file]" value="">
-                <input type="Submit" name="submit" value="Upload">
+                <input class="upload-form file-upload upload-comment" type="text" name="image[comment]" value="" placeholder="add comment...">
+                <input class="upload-form" type="hidden" name="image[location]" value="/images">
+                <input class="upload-form file-upload" type="file" name="image[file]" value="">
+                <input class="upload-form upload-file-button" type="Submit" name="submit" value="Upload">
               </form>
+              <div class="alert alert-success file-upload-success" role="alert">File uploaded, you sexy bastard.</div>
             </div>
           </div>
           </ul>
@@ -97,14 +99,13 @@
                 <th>Modified</th>
                 <th>Owner</th>
                 <th>Tags</th>
-                <th>Options</th>
-                <th>Shared with:</th>
+                <th>Comment</th>
               </tr>
             </table>
           </div>
           <div class="content-body file-storage">
             <table class="files-table">
-
+              <!-- uploaded files will go here. -->
             </table>
           </div>
           <div class="content-body people-directory">

@@ -9,7 +9,15 @@ var hideModal = function hideModal() {
   $('body').removeClass('modal-open');
 };
 
+var displayMessage = function displayMessage(type) {
+  $(function () {
+    $(type).delay(50).fadeIn('normal', function () {
+      $(this).delay(2000).fadeOut();
+    });
+  });
+};
 
 module.exports = {
-  hideModal
+  hideModal,
+  displayMessage
 };
