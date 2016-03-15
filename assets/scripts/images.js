@@ -3,6 +3,17 @@
 let globalVariables = require('./global-variables');
 let pageChanges = require('./page-changes');
 
+let uniqueFolders = function uniqueFolders(images) {
+  let foldersArray = [];
+  for (let i = 0; i < images.images.length; i++ ) {
+    foldersArray.push(images.images[i].folder[0]);
+  }
+  let uniqueArray = foldersArray.filter(function(elem, pos) {
+    return foldersArray.indexOf(elem) === pos;
+  });
+  console.log(uniqueArray);
+};
+
 let getImages = function getImages(event) {
   event.preventDefault();
   var formData = new FormData(event.target);
@@ -14,6 +25,8 @@ let getImages = function getImages(event) {
     processData: false,
     data: formData,
   }).done(function (images) {
+    Object.assign(globalVariables, images);
+    uniqueFolders(images);
     $('.files-table').empty();
     $('.file-storage').show();
     $('.people-directory').hide();
@@ -72,8 +85,14 @@ let deleteImage = function deleteImage(event) {
   });
 };
 
+let openFolder = function openFolder(event) {
+  let folderName = event.target.dataset.folderName;
+  console.log(event.target.dataset.folderName);
+};
+
 module.exports = {
   getImages,
   imageUpload,
-  deleteImage
+  deleteImage,
+  openFolder
 };

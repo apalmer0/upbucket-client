@@ -44,6 +44,10 @@ $('#file-upload').on('submit',function(event) {
   images.imageUpload(event);
 });
 
+$('.files-table').on('click', 'td.image-folder', function(event) {
+  images.openFolder(event);
+});
+
 $('.files-table').on('click', 'button.delete-image-button', function(event) {
   // images.deleteImage(event);
   console.log('this will be the delete button, eventually.');
