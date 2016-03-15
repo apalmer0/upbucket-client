@@ -74,7 +74,7 @@ body {
   border: 1px solid $gray;
   border-radius: 0;
   color: $gray;
-  margin-top: 10px;
+  margin-top: 20px;
   width: 100%;
 }
 
@@ -85,6 +85,10 @@ body {
 }
 
 .upload-comment:hover {
+  border: 1px solid $red;
+}
+
+.upload-tag:hover {
   border: 1px solid $red;
 }
 
@@ -133,12 +137,12 @@ body {
 
 .sidebar-option {
   cursor: pointer;
-  margin-top: 25%;
+  margin-top: 15%;
 }
 
 .action {
   border-top: 1px solid $red;
-  margin-top: 25%;
+  margin-top: 15%;
 }
 
 .sidebar-option:hover {
