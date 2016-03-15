@@ -64,6 +64,7 @@
             <div class="upload-file">
               <form id="file-upload" enctype="multipart/form-data">
                 <input class="upload-form file-upload upload-owner" type="hidden" name="image[owner]" value="56e5725b4ea95b7f12a9d61d">
+                <input class="upload-form file-upload upload-folder" type="text" name="image[folder]" value="" placeholder="specify folder...">
                 <input class="upload-form file-upload upload-comment" type="text" name="image[comment]" value="" placeholder="add comment...">
                 <input class="upload-form file-upload upload-tag" type="text" name="image[tags]" value="" placeholder="add tag...">
                 <input class="upload-form" type="hidden" name="image[location]" value="/images">
@@ -96,6 +97,7 @@
             </div>
             <table class="file-storage">
               <tr>
+                <th>Folder</th>
                 <th>Filename</th>
                 <th>Created</th>
                 <th>Modified</th>
