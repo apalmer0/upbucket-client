@@ -33,6 +33,9 @@ let imageUpload = function imageUpload(event) {
   console.log(event.target);
   $.ajax({
     url: globalVariables.baseUrl + '/images',
+    headers: {
+      Authorization: 'Token token=' + globalVariables.user.token,
+    },
     method: 'POST',
     contentType: false,
     processData: false,
