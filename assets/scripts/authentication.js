@@ -8,7 +8,7 @@ let signUp = function signUp(event) {
   var formData = new FormData(event.target);
   console.log('starting signup');
   $.ajax({
-    url: globalVariables.myApp.baseUrl + '/sign-up',
+    url: globalVariables.baseUrl + '/sign-up',
     method: 'POST',
     contentType: false,
     processData: false,
@@ -27,14 +27,14 @@ let logIn = function logIn(event) {
   console.log('starting login.');
   var formData = new FormData(event.target);
   $.ajax({
-    url: globalVariables.myApp.baseUrl + '/sign-in',
+    url: globalVariables.baseUrl + '/sign-in',
     method: 'POST',
     contentType: false,
     processData: false,
     data: formData,
   }).done(function (user) {
     console.log('logged in');
-    globalVariables.myApp.user = user;
+    Object.assign(globalVariables, user);
     console.log(user);
     console.log('theres the user');
     pageSetup.toggleLoggedIn();
@@ -49,9 +49,9 @@ let logOut = function logOut (event) {
   var formData = new FormData(event.target);
   $.ajax({
     // why do i have to access these via myApp.user.user?
-    url: globalVariables.myApp.baseUrl + '/sign-out/' + globalVariables.myApp.user.user._id,
+    url: globalVariables.baseUrl + '/sign-out/' + globalVariables.user._id,
     headers: {
-      Authorization: 'Token token=' + globalVariables.myApp.user.user.token,
+      Authorization: 'Token token=' + globalVariables.user.token,
     },
     method: 'DELETE',
     contentType: false,

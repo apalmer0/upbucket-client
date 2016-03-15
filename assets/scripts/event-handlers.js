@@ -45,7 +45,8 @@ $('#file-upload').on('submit',function(event) {
 });
 
 $('.files-table').on('click', 'button.delete-image-button', function(event) {
-  images.deleteImage(event);
+  // images.deleteImage(event);
+  console.log('this will be the delete button, eventually.');
 });
 
 

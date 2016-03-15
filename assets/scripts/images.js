@@ -8,7 +8,7 @@ let getImages = function getImages(event) {
   var formData = new FormData(event.target);
   console.log('starting getImages');
   $.ajax({
-    url: globalVariables.myApp.baseUrl + '/images',
+    url: globalVariables.baseUrl + '/images',
     method: 'GET',
     contentType: false,
     processData: false,
@@ -32,7 +32,7 @@ let imageUpload = function imageUpload(event) {
   console.log('starting imageUpload');
   console.log(event.target);
   $.ajax({
-    url: globalVariables.myApp.baseUrl + '/images',
+    url: globalVariables.baseUrl + '/images',
     method: 'POST',
     contentType: false,
     processData: false,
@@ -48,19 +48,17 @@ let imageUpload = function imageUpload(event) {
   });
 };
 
+
 let deleteImage = function deleteImage(event) {
   event.preventDefault();
   console.log('starting delete');
   let imageId = event.target.dataset.imageId;
   $.ajax({
-    // why do i have to access these via myApp.user.user?
-    url: globalVariables.myApp.baseUrl + '/images/' + imageId,
+    url: globalVariables.baseUrl + '/images/' + imageId,
     headers: {
-      Authorization: 'Token token=' + globalVariables.myApp.user.user.token,
+      Authorization: 'Token token=' + globalVariables.user.token,
     },
     method: 'DELETE',
-    contentType: false,
-    processData: false,
   }).done(function (data) {
     console.log('image deleted');
     console.log(data);
