@@ -11,7 +11,8 @@ let uniqueFolders = function uniqueFolders(images) {
   let uniqueArray = foldersArray.filter(function(elem, pos) {
     return foldersArray.indexOf(elem) === pos;
   });
-  console.log(uniqueArray);
+  return uniqueArray;
+  // console.log(uniqueArray);
 };
 
 let getImages = function getImages(event) {
@@ -25,14 +26,18 @@ let getImages = function getImages(event) {
     processData: false,
     data: formData,
   }).done(function (images) {
+    console.log('getImages success');
     Object.assign(globalVariables, images);
-    uniqueFolders(images);
+    $('.table-header').hide();
+    $('.spacer-one').hide();
+    $('.level-one').text('');
     $('.files-table').empty();
     $('.file-storage').show();
     $('.people-directory').hide();
-    console.log('getImages success');
-    let newImageTemplate = require('./handlebars/images/images-listing.handlebars');
-    $('.files-table').append(newImageTemplate({images}));
+    let folders = uniqueFolders(images);
+    for (let i = 0; i < folders.length; i++) {
+      $('.files-table').append("<div class='folder-row' data-folder-name="+folders[i].replace(' ','_')+">"+folders[i]+"</div>");
+    }
   }).fail(function (jqxhr) {
     console.error(jqxhr);
   });
@@ -85,9 +90,23 @@ let deleteImage = function deleteImage(event) {
   });
 };
 
-let openFolder = function openFolder(event) {
-  let folderName = event.target.dataset.folderName;
-  console.log(event.target.dataset.folderName);
+let openFolder = function openFolder() {
+  let folderName = event.target.dataset.folderName.replace('_',' ');
+  let images = [];
+  for (let i = 0; i < globalVariables.images.length; i++) {
+    if (folderName === globalVariables.images[i].folder[0]) {
+      images.push(globalVariables.images[i]);
+    }
+  }
+  if (images) {
+    $('.files-table').empty();
+    $('.spacer-one').show();
+    $('.level-one').text(folderName);
+    $('.table-header').show();
+    let newImageTemplate = require('./handlebars/images/images-listing.handlebars');
+    $('.files-table').append(newImageTemplate({images}));
+
+  }
 };
 
 module.exports = {

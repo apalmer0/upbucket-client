@@ -96,6 +96,8 @@ body {
   border: 1px solid $red;
 }
 
+
+
 .logged-in {
   height: 100%;
 
@@ -192,7 +194,6 @@ table {
   width: 100%;
 }
 
-
 th {
   border-collapse: collapse;
 }
@@ -200,6 +201,26 @@ th {
 th,
 td {
   padding: 5px;
+}
+
+.breadcrumbs:hover {
+  cursor: pointer;
+  font-weight: bold;
+  // text-decoration: underline;
+}
+
+.folder-row {
+  cursor: pointer;
+  margin-bottom: 5px;
+}
+
+.folder-row:first-child {
+  margin-top: 20px;
+}
+
+.folder-row:hover {
+  color: $red;
+  font-weight: bold;
 }
 
 .log-in-partial,
@@ -211,10 +232,6 @@ td {
 .custom-input-form {
   padding: 5px;
   width: 100%;
-}
-
-.file-storage {
-  // display: none;
 }
 
 .delete-image-button {
@@ -244,7 +261,6 @@ td {
 }
 
 .people-directory {
-  // display: none;
   height: 100%;
 }
 

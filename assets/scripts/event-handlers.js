@@ -40,11 +40,15 @@ $('.your-files').on('click', function(event) {
   images.getImages(event);
 });
 
+$('.breadcrumbs.level-zero').on('click', function(event) {
+  images.getImages(event);
+});
+
 $('#file-upload').on('submit',function(event) {
   images.imageUpload(event);
 });
 
-$('.files-table').on('click', 'td.image-folder', function(event) {
+$('.files-table').on('click', 'div.folder-row', function(event) {
   images.openFolder(event);
 });
 
