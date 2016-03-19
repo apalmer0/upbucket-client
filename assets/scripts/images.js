@@ -46,6 +46,7 @@ let getImages = function getImages(event) {
 
 let imageUpload = function imageUpload(event) {
   event.preventDefault();
+  $('.upload-owner').val(globalVariables.user._id);
   var formData = new FormData(event.target);
   console.log('starting imageUpload');
   console.log(event.target);
