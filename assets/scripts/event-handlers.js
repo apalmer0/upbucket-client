@@ -76,7 +76,6 @@ $('#move-image').on('submit', function(event) {
 
 $('.files-table').on('click', '#delete-image', function(event) {
   images.deleteImage(event);
-  // console.log('this will be the delete button, eventually.'+event);
 });
 
 $('.files-table').on('click', '.move-image-button', function(event) {
