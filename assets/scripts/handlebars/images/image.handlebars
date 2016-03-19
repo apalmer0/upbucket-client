@@ -2,9 +2,15 @@
   <td><a href="{{location}}" target="_blank">{{name}}</a></td>
   <td>{{cleanCreatedAt}}</td>
   <td>{{cleanUpdatedAt}}</td>
-  <td>ownername</td>
+  <!-- *TODO* how do i show the owner's email address here? -->
+  <td>{{_owner}}</td>
   <td>{{tags}}</td>
   <td>{{comment}}</td>
+  <!-- *TODO* wrap the final column with an if statement checking if the
+  currentuser is the owner - if so, show the button.
+  {{!-- {{#if owner = currentUser}}
+  {{/if}} --}}
+  -->
   <td>
     <div class="dropdown">
       <button class="btn btn-primary image-options-button dropdown-toggle" type="button" id="image-options-button" data-image-id="{{_id}}" data-image-location="{{location}}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">

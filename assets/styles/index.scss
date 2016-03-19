@@ -67,6 +67,7 @@ body {
 
 .action {
   border-top: 1px solid $red;
+  cursor: pointer;
   margin-top: 15%;
   padding-top: 5%;
 }
@@ -117,6 +118,7 @@ body {
 }
 
 .sidebar-logo {
+  cursor: pointer;
   margin: 0 auto;
   margin-top: 10%;
   width: 100%;

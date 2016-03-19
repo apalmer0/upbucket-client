@@ -17,6 +17,7 @@ let uniqueFolders = function uniqueFolders(images) {
 
 let getImages = function getImages(event) {
   event.preventDefault();
+  $('.level-zero').text('All Folders');
   var formData = new FormData(event.target);
   console.log('starting getImages');
   $.ajax({
@@ -132,8 +133,8 @@ let openFolder = function openFolder() {
     $('.spacer-one').show();
     $('.level-one').text(folderName);
     $('.table-header').show();
-    let newImageTemplate = require('./handlebars/images/images-listing.handlebars');
-    $('.files-table').append(newImageTemplate({images}));
+    let imageTemplate = require('./handlebars/images/images-listing.handlebars');
+    $('.files-table').append(imageTemplate({images}));
 
   }
 };

@@ -2,6 +2,7 @@
 
 let authentication = require('./authentication');
 let images = require('./images');
+let users = require('./users');
 
 $('.sign-up-button').on('click', function(){
   $('.welcome').hide();
@@ -19,9 +20,10 @@ $('.back-to-welcome-button').on('click', function(){
   $('.log-in-partial').hide();
 });
 
-$('.your-team').on('click', function() {
-  $('.people-directory').show();
+$('.sidebar-logo').on('click', function(){
+  $('.people-directory').hide();
   $('.file-storage').hide();
+  $('.breadcrumbs.level-zero').text('Home');
 });
 
 $('.action').on('click', function() {
@@ -82,6 +84,10 @@ $('.files-table').on('click', '.move-image-button', function(event) {
   $('.move-file-name').text(event.target.dataset.fileName);
   $('#inputDirectory5').val(event.target.dataset.fileFolder);
   $('.move-image-submit').attr('data-image-id', event.target.dataset.imageId);
+});
+
+$('.your-team').on('click', function(event) {
+  users.getUsers(event);
 });
 
 
