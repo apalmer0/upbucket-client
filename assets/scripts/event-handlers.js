@@ -36,6 +36,10 @@ $('#log-out').on('click',function(event) {
   authentication.logOut(event);
 });
 
+$('#change-pw').on('submit',function(event) {
+  authentication.changePassword(event);
+});
+
 $('.your-files').on('click', function(event) {
   images.getImages(event);
 });
