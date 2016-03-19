@@ -59,21 +59,21 @@
               Your Team
             </div>
             <div class="action">
-              Upload File
+              Upload File <span class="action-icon pull-right glyphicon glyphicon-chevron-down"></span>
             </div>
-            <div class="upload-file">
+            <div class="upload-file-form hidden">
               <form id="file-upload" enctype="multipart/form-data">
-                <input class="upload-form file-upload upload-owner" type="hidden" name="image[owner]" value="">
-                <input class="upload-form file-upload upload-folder" type="text" name="image[folder]" value="" placeholder="specify folder...">
-                <input class="upload-form file-upload upload-comment" type="text" name="image[comment]" value="" placeholder="add comment...">
-                <input class="upload-form file-upload upload-tag" type="text" name="image[tags]" value="" placeholder="add tag...">
-                <input class="upload-form" type="hidden" name="image[location]" value="/images">
-                <input class="upload-form file-upload" type="file" name="image[file]" value="">
-                <input class="upload-form upload-file-button" type="Submit" name="submit" value="Upload">
+                <input class="upload-field file-upload upload-owner" type="hidden" name="image[owner]" value="">
+                <input class="upload-field file-upload upload-folder" type="text" name="image[folder]" value="" placeholder="specify folder...">
+                <input class="upload-field file-upload upload-comment" type="text" name="image[comment]" value="" placeholder="add comment...">
+                <input class="upload-field file-upload upload-tag" type="text" name="image[tags]" value="" placeholder="add tag...">
+                <input class="upload-field" type="hidden" name="image[location]" value="/images">
+                <input class="upload-field file-upload" type="file" name="image[file]" value="">
+                <input class="upload-field upload-file-button" type="Submit" name="submit" value="Upload">
               </form>
-              <div class="alert alert-success popup-messages file-upload-success" role="alert">File uploaded, you sexy bastard.</div>
-              <div class="alert alert-success popup-messages password-changed-success" role="alert"><strong>Damn, Daniel!</strong> Back at it again with the new password!</div>
+              <div class="alert alert-success popup-messages file-upload-success" role="alert"><strong>File uploaded,</strong> you sexy bastard.</div>
             </div>
+            <div class="alert alert-success popup-messages password-changed-success" role="alert"><strong>Damn, Daniel!</strong> Back at it again with the new password!</div>
           </div>
           </ul>
         </div>

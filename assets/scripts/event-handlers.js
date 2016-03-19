@@ -24,6 +24,20 @@ $('.your-team').on('click', function() {
   $('.file-storage').hide();
 });
 
+$('.action').on('click', function() {
+  if ($('.upload-file-form').hasClass('hidden')) {
+    $('.upload-file-form').toggleClass('hidden');
+    $('.upload-file-form').slideDown();
+    $('.action-icon').removeClass('glyphicon-chevron-down');
+    $('.action-icon').addClass('glyphicon-chevron-up');
+  } else {
+    $('.upload-file-form').toggleClass('hidden');
+    $('.upload-file-form').slideUp();
+    $('.action-icon').addClass('glyphicon-chevron-down');
+    $('.action-icon').removeClass('glyphicon-chevron-up');
+  }
+});
+
 $('#signup').on('submit',function(event) {
   authentication.signUp(event);
 });

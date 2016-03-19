@@ -61,12 +61,14 @@ body {
   }
 }
 
-.upload-form {
+.upload-field {
   margin-top: 5%;
 }
 
-.upload-file {
-  margin-top: 10%;
+.action {
+  border-top: 1px solid $red;
+  margin-top: 15%;
+  padding-top: 5%;
 }
 
 .upload-file-button {
@@ -146,10 +148,6 @@ body {
   margin-top: 15%;
 }
 
-.action {
-  border-top: 1px solid $red;
-  margin-top: 15%;
-}
 
 .sidebar-option:hover {
   color: $red;
@@ -172,8 +170,7 @@ body {
 }
 
 .content-body {
-  height: 100%;
-  margin-top: 14%;
+  margin-top: 15%;
   padding-left: 3%;
   padding-right: 3%;
 }

@@ -5,6 +5,7 @@ var hidePageElements = function hidePageElements() {
   $('.log-in-partial').hide();
   $('.people-directory').hide();
   $('.popup-messages').hide();
+  $('.upload-file-form').hide();
   $('.spacer-one').hide();
   $('.table-header').hide();
   $('.logged-out').show();
