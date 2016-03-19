@@ -101,6 +101,7 @@ let deleteImage = function deleteImage(event) {
   event.preventDefault();
   console.log('starting delete');
   let imageId = event.target.dataset.imageId;
+  // *TODO* add a popup here confirming the user's decision
   $.ajax({
     url: globalVariables.baseUrl + '/images/' + imageId,
     headers: {
