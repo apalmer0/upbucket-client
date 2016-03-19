@@ -52,9 +52,19 @@ $('.files-table').on('click', 'div.folder-row', function(event) {
   images.openFolder(event);
 });
 
-$('.files-table').on('click', 'button.delete-image-button', function(event) {
+$('#move-image').on('submit', function(event) {
+  images.moveImage(event);
+});
+
+$('.files-table').on('click', '#delete-image', function(event) {
   // images.deleteImage(event);
-  console.log('this will be the delete button, eventually.');
+  console.log('this will be the delete button, eventually.'+event);
+});
+
+$('.files-table').on('click', '.move-image-button', function(event) {
+  $('.move-file-name').text(event.target.dataset.fileName);
+  $('#inputDirectory5').val(event.target.dataset.fileFolder);
+  $('.move-image-submit').attr('data-image-id', event.target.dataset.imageId);
 });
 
 

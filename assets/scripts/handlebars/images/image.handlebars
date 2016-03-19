@@ -1,10 +1,21 @@
-<tr class="image-row image-number-{{id}}">
+<tr class="image-row image-number-{{_id}}">
   <td class="image-folder" data-folder-name="{{folder}}">{{folder}}</td>
   <td><a href="{{location}}" target="_blank">{{name}}</a></td>
   <td>{{cleanCreatedAt}}</td>
   <td>{{cleanUpdatedAt}}</td>
-  <td>{{_owner}}</td>
+  <td>ownername</td>
   <td>{{tags}}</td>
   <td>{{comment}}</td>
-  <td><button type="button" class="btn btn-primary delete-image-button" data-image-id="{{_id}}" data-image-location="{{location}}">Delete</button></td>
+  <td>
+    <div class="dropdown">
+      <button class="btn btn-primary image-options-button dropdown-toggle" type="button" id="image-options-button" data-image-id="{{_id}}" data-image-location="{{location}}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+        Options
+        <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu" aria-labelledby="image-options-button">
+        <li><a class="modal-button move-image-button" data-image-id="{{_id}}" data-file-folder="{{folder}}" data-file-name="{{name}}" data-toggle="modal" data-target="#moveImageModal" href="#">Move file</a></li>
+        <li><a id="delete-image" href="#">Delete file</a></li>
+      </ul>
+    </div>
+  </td>
 </tr>

@@ -69,6 +69,32 @@ let imageUpload = function imageUpload(event) {
   });
 };
 
+let moveImage = function moveImage(event) {
+  event.preventDefault();
+  let imageId = $('.move-image-submit')[0].dataset.imageId.toString();
+  console.log('starting moveImage');
+  console.log('image id: '+imageId);
+  console.log(event.target);
+  console.log('going to:'+$('#inputDirectory6').val());
+  var formData = new FormData(event.target);
+  $.ajax({
+    url: globalVariables.baseUrl + '/images/' + imageId,
+    headers: {
+      Authorization: 'Token token=' + globalVariables.user.token,
+    },
+    method: 'PATCH',
+    contentType: false,
+    processData: false,
+    data: formData
+  }).done(function (data) {
+    console.log('moveImage success');
+    console.log(data);
+  }).fail(function (jqxhr) {
+    console.log('shit\'s on fire, yo');
+    console.error(jqxhr);
+  });
+};
+
 
 let deleteImage = function deleteImage(event) {
   event.preventDefault();
@@ -112,6 +138,7 @@ let openFolder = function openFolder() {
 module.exports = {
   getImages,
   imageUpload,
+  moveImage,
   deleteImage,
   openFolder
 };

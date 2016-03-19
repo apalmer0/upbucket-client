@@ -234,10 +234,11 @@ td {
   width: 100%;
 }
 
-.delete-image-button {
+.image-options-button {
   background-color: $white;
   border: 1px solid $gray;
   border-radius: 0;
+  box-shadow: 0 0 5px 1px;
   color: $gray;
   display: none;
 }
@@ -250,11 +251,11 @@ td {
 .image-row:hover {
   background-color: $light-red;
 
-  .delete-image-button {
+  .image-options-button {
     display: block;
   }
 
-  .delete-image-button:hover {
+  .image-options-button:hover {
     background-color: $red;
     color: $white;
   }
