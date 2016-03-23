@@ -2,13 +2,6 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
 
 $background-color: #000;
-$footer-background: #292c2f;
-$font-color: #006ba6;
-$footer-company-name: #8f9296;
-$footer-glyph-inset: #33383b;
-$footer-email-link: #5383d3;
-$footer-company-about: #92999f;
-
 $black: #000;
 $off-black: #4d4848;
 $gray: #282828;
@@ -17,15 +10,6 @@ $white: #fff;
 $off-white: #f5f5f5;
 $red: #bd2222;
 $light-red: #ffe6e6;
-$warning-red: #c00;
-$danger-red: #800000;
-$orange: #f90;
-$yellow: #ff0;
-$green: #31a234;
-$blue: #0198e1;
-$porch-blue: #006ba6;
-$purple: #90c;
-$pink: #f6f;
 
 html,
 body {
@@ -260,11 +244,28 @@ td {
   }
 }
 
-.people-directory {
-  height: 100%;
+.collaborators {
+  width: 100%;
 }
 
-.profile-preview {
+.chosen-collaborator {
+  background-color: $black;
+  color: $white;
+  opacity: .5;
+}
+
+.chosen-collaborator:hover {
+  background-color: $off-black;
+}
+
+.all-users-list {
+  border-top: 1px solid $red;
+  clear: left;
+  margin-top: 14%;
+  padding-top: 2%;
+}
+
+.user-profile {
   border: 1px solid $light-gray;
   float: left;
   height: 20%;
@@ -272,7 +273,7 @@ td {
   width: 19%;
 }
 
-.profile-preview:hover {
+.user-profile:hover {
   background-color: $red;
   opacity: .5;
 }

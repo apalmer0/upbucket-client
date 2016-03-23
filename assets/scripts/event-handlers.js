@@ -90,5 +90,8 @@ $('.your-team').on('click', function(event) {
   users.getUsers(event);
 });
 
+$('.all-users').on('click', 'div.user-profile', function(event) {
+  users.addCollaborator(event);
+});
 
 module.exports = true;

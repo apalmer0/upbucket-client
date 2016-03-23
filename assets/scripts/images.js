@@ -5,8 +5,8 @@ let pageChanges = require('./page-changes');
 
 let uniqueFolders = function uniqueFolders(images) {
   let foldersArray = [];
-  for (let i = 0; i < images.images.length; i++ ) {
-    foldersArray.push(images.images[i].folder[0]);
+  for (let i = 0; i < images.length; i++ ) {
+    foldersArray.push(images[i].folder[0]);
   }
   let uniqueArray = foldersArray.filter(function(elem, pos) {
     return foldersArray.indexOf(elem) === pos;
@@ -26,17 +26,27 @@ let getImages = function getImages(event) {
     contentType: false,
     processData: false,
     data: formData,
-  }).done(function (images) {
+  }).done(function (imagesCollection) {
     console.log('getImages success');
-    Object.assign(globalVariables, images);
+    let ownedImages = [];
+    for (let i = 0; i < imagesCollection.images.length; i++) {
+      if (imagesCollection.images[i]._owner === globalVariables.user._id) {
+        ownedImages.push(imagesCollection.images[i]);
+      }
+    }
+    let imagesObject = { ownedImages: ownedImages };
+    Object.assign(globalVariables, imagesObject);
     $('.table-header').hide();
     $('.spacer-one').hide();
     $('.level-one').text('');
     $('.files-table').empty();
     $('.file-storage').show();
     $('.people-directory').hide();
-    let folders = uniqueFolders(images);
+    let folders = uniqueFolders(ownedImages);
     for (let i = 0; i < folders.length; i++) {
+      // people might put spaces into their folder names, which is no bueno if you're trying
+      // to concatenate them into data attributes. this line swaps out a space for an underscore so it
+      // can be used for that data attribute.
       $('.files-table').append("<div class='folder-row' data-folder-name="+folders[i].replace(' ','_')+">"+folders[i]+"</div>");
     }
   }).fail(function (jqxhr) {
@@ -121,11 +131,12 @@ let deleteImage = function deleteImage(event) {
 };
 
 let openFolder = function openFolder() {
+  // console.log(globalVariables.ownedImages);
   let folderName = event.target.dataset.folderName.replace('_',' ');
   let images = [];
-  for (let i = 0; i < globalVariables.images.length; i++) {
-    if (folderName === globalVariables.images[i].folder[0]) {
-      images.push(globalVariables.images[i]);
+  for (let i = 0; i < globalVariables.ownedImages.length; i++) {
+    if (folderName === globalVariables.ownedImages[i].folder[0]) {
+      images.push(globalVariables.ownedImages[i]);
     }
   }
   if (images) {
@@ -135,7 +146,6 @@ let openFolder = function openFolder() {
     $('.table-header').show();
     let imageTemplate = require('./handlebars/images/images-listing.handlebars');
     $('.files-table').append(imageTemplate({images}));
-
   }
 };
 
