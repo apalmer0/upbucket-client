@@ -30,6 +30,7 @@ let getUsers = function getUsers(event) {
   }).done(function (users) {
     getCollaborators(users);
     $('.people-directory').show();
+    $('.homepage').hide();
     $('.file-storage').hide();
     $('.all-users').empty();
     $('.level-zero').text('All Users');

@@ -42,6 +42,7 @@ let getImages = function getImages(event) {
     $('.files-table').empty();
     $('.file-storage').show();
     $('.people-directory').hide();
+    $('.homepage').hide();
     let folders = uniqueFolders(ownedImages);
     for (let i = 0; i < folders.length; i++) {
       // people might put spaces into their folder names, which is no bueno if you're trying
@@ -131,7 +132,6 @@ let deleteImage = function deleteImage(event) {
 };
 
 let openFolder = function openFolder() {
-  // console.log(globalVariables.ownedImages);
   let folderName = event.target.dataset.folderName.replace('_',' ');
   let images = [];
   for (let i = 0; i < globalVariables.ownedImages.length; i++) {

@@ -33,11 +33,12 @@ let logIn = function logIn(event) {
     contentType: false,
     processData: false,
     data: formData,
-  }).done(function (user) {
+  }).done(function (userData) {
     console.log('logged in');
-    Object.assign(globalVariables, user);
-    console.log(user);
+    Object.assign(globalVariables, userData);
+    console.log(userData);
     console.log('theres the user');
+    $('.user-name').text(userData.user.fullName);
     pageSetup.toggleLoggedIn();
   }).fail(function (jqxhr) {
     console.error(jqxhr);
@@ -46,6 +47,7 @@ let logIn = function logIn(event) {
 
 // log out actions
 let logOut = function logOut (event) {
+  console.log(globalVariables);
   event.preventDefault();
   var formData = new FormData(event.target);
   $.ajax({
@@ -59,6 +61,8 @@ let logOut = function logOut (event) {
     processData: false,
     data: formData,
   }).done(function (data) {
+    globalVariables.userData = {};
+    globalVariables.ownedImages = {};
     console.log(data);
     console.log('logged out');
     pageSetup.toggleLoggedOut();

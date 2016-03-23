@@ -14,12 +14,18 @@ var hidePageElements = function hidePageElements() {
 
 var toggleLoggedIn = function toggleLoggedIn() {
   $('.logged-in').show();
+  $('.homepage').show();
   $('.logged-out').hide();
 };
 
 var toggleLoggedOut = function toggleLoggedOut() {
   $('.logged-in').hide();
   $('.logged-out').show();
+  $('.people-directory').hide();
+  $('.file-directory').hide();
+  $('.files-table').empty();
+  $('.collaborators').empty();
+  $('.all-users').empty();
 };
 
 

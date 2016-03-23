@@ -23,6 +23,7 @@ $('.back-to-welcome-button').on('click', function(){
 $('.sidebar-logo').on('click', function(){
   $('.people-directory').hide();
   $('.file-storage').hide();
+  $('.homepage').show();
   $('.breadcrumbs.level-zero').text('Home');
 });
 
