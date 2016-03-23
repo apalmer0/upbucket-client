@@ -167,9 +167,8 @@ body {
   font-size: 130%;
 }
 
-.user-info {
+.user-name {
   font-family: 'Syncopate', sans-serif;
-  font-size: 80%;
 }
 
 table {
@@ -194,7 +193,8 @@ td {
 
 .folder-row {
   cursor: pointer;
-  margin-bottom: 5px;
+  font-family: 'Syncopate', sans-serif;
+  margin-bottom: 10px;
 }
 
 .folder-row:first-child {

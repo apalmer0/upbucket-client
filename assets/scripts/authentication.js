@@ -4,25 +4,6 @@ let globalVariables = require('./global-variables');
 let pageSetup = require('./page-setup');
 let pageChanges = require('./page-changes');
 
-let signUp = function signUp(event) {
-  event.preventDefault();
-  var formData = new FormData(event.target);
-  console.log('starting signup');
-  $.ajax({
-    url: globalVariables.baseUrl + '/sign-up',
-    method: 'POST',
-    contentType: false,
-    processData: false,
-    data: formData,
-  }).done(function (data) {
-    console.log('signup success');
-    console.log(data);
-    console.log('there\'s your data!');
-  }).fail(function (jqxhr) {
-    console.error(jqxhr);
-  });
-};
-
 let logIn = function logIn(event) {
   event.preventDefault();
   console.log('starting login.');
@@ -45,13 +26,32 @@ let logIn = function logIn(event) {
   });
 };
 
+let signUp = function signUp(event) {
+  event.preventDefault();
+  var formData = new FormData(event.target);
+  console.log('starting signup');
+  $.ajax({
+    url: globalVariables.baseUrl + '/sign-up',
+    method: 'POST',
+    contentType: false,
+    processData: false,
+    data: formData,
+  }).done(function (data) {
+    logIn(event);
+    console.log('signup success');
+    console.log(data);
+    console.log('there\'s your data!');
+  }).fail(function (jqxhr) {
+    console.error(jqxhr);
+  });
+};
+
 // log out actions
 let logOut = function logOut (event) {
   console.log(globalVariables);
   event.preventDefault();
   var formData = new FormData(event.target);
   $.ajax({
-    // why do i have to access these via myApp.user.user?
     url: globalVariables.baseUrl + '/sign-out/' + globalVariables.user._id,
     headers: {
       Authorization: 'Token token=' + globalVariables.user.token,

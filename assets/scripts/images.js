@@ -28,6 +28,13 @@ let getImages = function getImages(event) {
     data: formData,
   }).done(function (imagesCollection) {
     console.log('getImages success');
+    $('.homepage').hide();
+    $('.files-table').empty();
+    $('.table-header').hide();
+    $('.spacer-one').hide();
+    $('.level-one').text('');
+    $('.file-storage').show();
+    $('.people-directory').hide();
     let ownedImages = [];
     for (let i = 0; i < imagesCollection.images.length; i++) {
       if (imagesCollection.images[i]._owner === globalVariables.user._id) {
@@ -36,19 +43,17 @@ let getImages = function getImages(event) {
     }
     let imagesObject = { ownedImages: ownedImages };
     Object.assign(globalVariables, imagesObject);
-    $('.table-header').hide();
-    $('.spacer-one').hide();
-    $('.level-one').text('');
-    $('.files-table').empty();
-    $('.file-storage').show();
-    $('.people-directory').hide();
-    $('.homepage').hide();
-    let folders = uniqueFolders(ownedImages);
-    for (let i = 0; i < folders.length; i++) {
-      // people might put spaces into their folder names, which is no bueno if you're trying
-      // to concatenate them into data attributes. this line swaps out a space for an underscore so it
-      // can be used for that data attribute.
-      $('.files-table').append("<div class='folder-row' data-folder-name="+folders[i].replace(' ','_')+">"+folders[i]+"</div>");
+    if (imagesObject.length) {
+      let folders = uniqueFolders(ownedImages);
+      for (let i = 0; i < folders.length; i++) {
+        // people might put spaces into their folder names, which is no bueno if you're trying
+        // to concatenate them into data attributes. this line swaps out a space for an underscore so it
+        // can be used for that data attribute.
+        $('.files-table').append("<div class='folder-row' data-folder-name="+folders[i].replace(' ','_')+">"+folders[i]+"</div>");
+      }
+    } else {
+      console.log('hey');
+      $('.files-table').append("<div>You don't have any files! Upload some.</div>");
     }
   }).fail(function (jqxhr) {
     console.error(jqxhr);
