@@ -18,6 +18,7 @@ let uniqueFolders = function uniqueFolders(images) {
 let getImages = function getImages(event) {
   event.preventDefault();
   $('.level-zero').text('All Folders');
+  $('.user-actions').show();
   var formData = new FormData(event.target);
   console.log('starting getImages');
   $.ajax({

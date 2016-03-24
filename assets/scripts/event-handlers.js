@@ -24,20 +24,21 @@ $('.sidebar-logo').on('click', function(){
   $('.people-directory').hide();
   $('.file-storage').hide();
   $('.homepage').show();
+  $('.user-actions').hide();
   $('.breadcrumbs.level-zero').text('Home');
 });
 
-$('.action').on('click', function() {
+$('.upload-section').on('click', function() {
   if ($('.upload-file-form').hasClass('hidden')) {
     $('.upload-file-form').toggleClass('hidden');
     $('.upload-file-form').slideDown();
-    $('.action-icon').removeClass('glyphicon-chevron-down');
-    $('.action-icon').addClass('glyphicon-chevron-up');
+    $('.upload-section-icon').removeClass('glyphicon-chevron-down');
+    $('.upload-section-icon').addClass('glyphicon-chevron-up');
   } else {
     $('.upload-file-form').toggleClass('hidden');
     $('.upload-file-form').slideUp();
-    $('.action-icon').addClass('glyphicon-chevron-down');
-    $('.action-icon').removeClass('glyphicon-chevron-up');
+    $('.upload-section-icon').addClass('glyphicon-chevron-down');
+    $('.upload-section-icon').removeClass('glyphicon-chevron-up');
   }
 });
 
@@ -79,6 +80,10 @@ $('#move-image').on('submit', function(event) {
 
 $('.files-table').on('click', '#delete-image', function(event) {
   images.deleteImage(event);
+});
+
+$('.glyphicon-folder-open').on('click', function(){
+  console.log('new folder');
 });
 
 $('.files-table').on('click', '.move-image-button', function(event) {

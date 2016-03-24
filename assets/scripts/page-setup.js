@@ -10,6 +10,7 @@ var hidePageElements = function hidePageElements() {
   $('.table-header').hide();
   $('.logged-out').show();
   $('.logged-in').hide();
+  $('.user-actions').hide();
 };
 
 var toggleLoggedIn = function toggleLoggedIn() {

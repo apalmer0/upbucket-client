@@ -31,6 +31,7 @@ let getUsers = function getUsers(event) {
     getCollaborators(users);
     $('.people-directory').show();
     $('.homepage').hide();
+    $('.user-actions').hide();
     $('.file-storage').hide();
     $('.all-users').empty();
     $('.level-zero').text('All Users');

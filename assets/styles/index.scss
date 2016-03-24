@@ -49,7 +49,7 @@ body {
   margin-top: 5%;
 }
 
-.action {
+.upload-section {
   border-top: 1px solid $red;
   cursor: pointer;
   margin-top: 15%;
@@ -83,6 +83,10 @@ body {
   border: 1px solid $red;
 }
 
+.glyphicon-folder-open {
+  color: $red;
+  cursor: pointer;
+}
 
 
 .logged-in {
