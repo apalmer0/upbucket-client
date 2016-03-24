@@ -43,7 +43,7 @@ let getImages = function getImages(event) {
     }
     let imagesObject = { ownedImages: ownedImages };
     Object.assign(globalVariables, imagesObject);
-    if (imagesObject.length) {
+    if (imagesObject.ownedImages.length) {
       let folders = uniqueFolders(ownedImages);
       for (let i = 0; i < folders.length; i++) {
         // people might put spaces into their folder names, which is no bueno if you're trying
@@ -52,7 +52,6 @@ let getImages = function getImages(event) {
         $('.files-table').append("<div class='folder-row' data-folder-name="+folders[i].replace(' ','_')+">"+folders[i]+"</div>");
       }
     } else {
-      console.log('hey');
       $('.files-table').append("<div>You don't have any files! Upload some.</div>");
     }
   }).fail(function (jqxhr) {
