@@ -85,7 +85,7 @@
                 <span class="breadcrumbs level-zero">Home</span><span class="spacer-one"> > </span><span class="breadcrumbs level-one"></span>
               </span>
               <span class="user-info pull-right">
-                <span class="user-actions glyphicon glyphicon-folder-open"></span>
+                <a data-toggle="modal" data-target="#addFolderModal" href="#"><span class="user-actions glyphicon glyphicon-folder-open"></span></a>
                 <span class="dropdown logged-in">
                   <button class="btn btn-link dropdown-toggle" type="button" id="main-navigation" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
                     <span class="user-name"></span>
@@ -206,5 +206,31 @@
         </div>
       </div>
       <!-- ^^^^ Move File Modal ^^^^ -->
+      <!-- vvvv Add folder Modal vvvv -->
+      <div class="modal fade" id="addFolderModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <form id="addFolder">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h2 class="modal-title" id="myModalLabel">Create new folder</h2>
+              </div>
+              <div class="modal-body">
+                <div class="form-group row">
+                  <label for="inputFolderName" class="col-sm-4 form-control-label">Folder Name</label>
+                  <div class="col-sm-8">
+                    <input type="text" class="form-control" id="inputFolderName" placeholder="folder name" name="" value="">
+                  </div>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                <button type="submit" name="submit" class="btn btn-primary modal-button">Create Folder</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <!-- ^^^^ Add folder Modal ^^^^ -->
     </body>
 </html>
