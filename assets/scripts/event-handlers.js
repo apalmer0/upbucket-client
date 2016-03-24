@@ -3,6 +3,7 @@
 let authentication = require('./authentication');
 let images = require('./images');
 let users = require('./users');
+let globalVariables = require('./global-variables');
 
 $('.sign-up-button').on('click', function(){
   $('.welcome').hide();
@@ -25,7 +26,23 @@ $('.sidebar-logo').on('click', function(){
   $('.file-storage').hide();
   $('.homepage').show();
   $('.user-actions').hide();
+  $('.edit-user').hide();
   $('.breadcrumbs.level-zero').text('Home');
+});
+
+$('#edit-profile').on('click', function(){
+  $('.people-directory').hide();
+  $('.file-storage').hide();
+  $('.homepage').hide();
+  $('.user-actions').hide();
+  $('.edit-user').show();
+  $('.breadcrumbs.level-zero').text('Edit user info');
+  $('.edit-user-firstName').text(globalVariables.user.name.given);
+  $('.edit-user-lastName').text(globalVariables.user.name.surname);
+  $('.edit-user-email').text(globalVariables.user.email);
+  $('.edit-user-firstName').val(globalVariables.user.name.given);
+  $('.edit-user-lastName').val(globalVariables.user.name.surname);
+  $('.edit-user-email').val(globalVariables.user.email);
 });
 
 $('.upload-section').on('click', function() {
@@ -98,6 +115,10 @@ $('.your-team').on('click', function(event) {
 
 $('.all-users').on('click', 'div.user-profile', function(event) {
   users.addCollaborator(event);
+});
+
+$('#edit-user-data').on('submit',function(event) {
+  users.submitUserEdits(event);
 });
 
 module.exports = true;

@@ -18,6 +18,16 @@ body {
   width: 100%;
 }
 
+.user-data {
+  color: $red;
+  font-family: 'Syncopate', sans-serif;
+  font-weight: bold;
+}
+
+.edit-user-data {
+  font-family: 'Syncopate', sans-serif;
+}
+
 .logged-out {
   font-family: 'Syncopate', sans-serif;
   text-align: center;

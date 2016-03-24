@@ -30,6 +30,7 @@ let getImages = function getImages(event) {
   }).done(function (imagesCollection) {
     console.log('getImages success');
     $('.homepage').hide();
+    $('.edit-user').hide();
     $('.files-table').empty();
     $('.table-header').hide();
     $('.spacer-one').hide();

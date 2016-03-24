@@ -11,6 +11,7 @@ var hidePageElements = function hidePageElements() {
   $('.logged-out').show();
   $('.logged-in').hide();
   $('.user-actions').hide();
+  $('.edit-user').hide();
 };
 
 var toggleLoggedIn = function toggleLoggedIn() {

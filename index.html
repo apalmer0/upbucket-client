@@ -92,6 +92,7 @@
                     <span class="caret"></span>
                   </button>
                   <ul class="dropdown-menu" aria-labelledby="main-navigation">
+                    <li><a id="edit-profile" href="#">Edit Profile</a></li>
                     <li><a class="modal-button" data-toggle="modal" data-target="#changePasswordModal" href="#">Change password</a></li>
                     <li><a id="log-out" href="#">Log out</a></li>
                   </ul>
@@ -110,9 +111,45 @@
             </table>
           </div>
           <div class="content-body homepage">
-            <table class="homepage-content">
+            <div class="homepage-content">
               Welcome! Upload some files or pick a collaborator.
-            </table>
+            </div>
+          </div>
+          <div class="content-body edit-user">
+            <div class="edit-user-content">
+              <div class="col-md-6">
+                <div>
+                  <span class="user-data">First Name:</span>
+                  <span class="edit-user-data edit-user-firstName pull-right"></span>
+                </div>
+                <div>
+                  <span class="user-data">Last Name:</span>
+                  <span class="edit-user-data edit-user-lastName pull-right"></span>
+                </div>
+                <div>
+                  <span class="user-data">Email Address:</span>
+                  <span class="edit-user-data edit-user-email pull-right"></span>
+                </div>
+                <div class="alert alert-success popup-messages user-change-success" role="alert"><strong>Success!</strong> Your info has been changed.</div>
+              </div>
+              <div class="col-md-6">
+                <form id="edit-user-data">
+                  <div>
+                    <input type="text" class="custom-input-form edit-user-firstName" name="name[given]" value="">
+                  </div>
+                  <div>
+                    <input type="text" class="custom-input-form edit-user-lastName" name="name[surname]" value="">
+                  </div>
+                  <div>
+                    <input type="email" class="custom-input-form edit-user-email" name="credentials[email]" value="">
+                  </div>
+                  <br>
+                  <div>
+                    <input type="submit" class="btn btn-success" name="submit" value="change it up">
+                  </div>
+                </form>
+              </div>
+            </div>
           </div>
           <div class="content-body file-storage">
             <table class="files-table">

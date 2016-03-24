@@ -1,6 +1,7 @@
 'use strict';
 
 let globalVariables = require('./global-variables');
+let pageChanges = require('./page-changes');
 
 let getCollaborators = function getCollaborators(users) {
   console.log('users length: '+users.users.length);
@@ -31,6 +32,7 @@ let getUsers = function getUsers(event) {
     getCollaborators(users);
     $('.people-directory').show();
     $('.homepage').hide();
+    $('.edit-user').hide();
     $('.user-actions').hide();
     $('.file-storage').hide();
     $('.all-users').empty();
@@ -41,6 +43,29 @@ let getUsers = function getUsers(event) {
     console.log(users);
     let userTemplate = require('./handlebars/users/users-listing.handlebars');
     $('.all-users').append(userTemplate({users}));
+  }).fail(function (jqxhr) {
+    console.error(jqxhr);
+  });
+};
+
+let getUser = function getUser(){
+  console.log('starting getUser');
+  $.ajax({
+    url: globalVariables.baseUrl + '/users/' + globalVariables.user._id,
+    headers: {
+      Authorization: 'Token token=' + globalVariables.user.token,
+    },
+    method: 'GET'
+  }).done(function (userData) {
+    globalVariables.user.name.given = userData.user.name.given;
+    globalVariables.user.name.surname = userData.user.name.surname;
+    globalVariables.user.name.email = userData.user.name.email;
+    $('.user-name').text(userData.user.fullName);
+    $('.edit-user-firstName').text(globalVariables.user.name.given);
+    $('.edit-user-lastName').text(globalVariables.user.name.surname);
+    $('.edit-user-email').text(globalVariables.user.email);
+    console.log(globalVariables);
+    pageChanges.displayMessage('.user-change-success');
   }).fail(function (jqxhr) {
     console.error(jqxhr);
   });
@@ -80,8 +105,31 @@ let addCollaborator = function addCollaborator(event) {
   }
 };
 
+let submitUserEdits = function submitUserEdits(event) {
+  event.preventDefault();
+  console.log('submitUserEdits');
+  let formData = new FormData(event.target);
+  console.log(event.target);
+  $.ajax({
+    url: globalVariables.baseUrl + '/users/' + globalVariables.user._id,
+    headers: {
+      Authorization: 'Token token=' + globalVariables.user.token,
+    },
+    method: 'PATCH',
+    contentType: false,
+    processData: false,
+    data: formData
+  }).done(function () {
+    console.log('success');
+    getUser();
+  }).fail(function (jqxhr) {
+    console.error(jqxhr);
+  });
+};
+
 
 module.exports = {
   getUsers,
-  addCollaborator
+  addCollaborator,
+  submitUserEdits
 };
