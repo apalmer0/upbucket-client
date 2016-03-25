@@ -391,6 +391,7 @@ webpackJsonp([0],[
 	    processData: false,
 	    data: formData
 	  }).done(function (imagesCollection) {
+	    console.log(imagesCollection);
 	    console.log('getImages success');
 	    $('.homepage').hide();
 	    $('.edit-user').hide();
