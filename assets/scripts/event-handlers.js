@@ -91,8 +91,8 @@ $('.files-table').on('click', 'div.folder-row', function(event) {
   images.openFolder(event);
 });
 
-$('#move-image').on('submit', function(event) {
-  images.moveImage(event);
+$('#edit-image').on('submit', function(event) {
+  images.editImage(event);
 });
 
 $('.files-table').on('click', '#delete-image', function(event) {
@@ -103,10 +103,10 @@ $('.glyphicon-folder-open').on('click', function(){
   console.log('new folder');
 });
 
-$('.files-table').on('click', '.move-image-button', function(event) {
-  $('.move-file-name').text(event.target.dataset.fileName);
+$('.files-table').on('click', '.edit-image-button', function(event) {
+  $('.edit-file-name').text(event.target.dataset.fileName);
   $('#inputDirectory5').val(event.target.dataset.fileFolder);
-  $('.move-image-submit').attr('data-image-id', event.target.dataset.imageId);
+  $('.edit-image-submit').attr('data-image-id', event.target.dataset.imageId);
 });
 
 $('.your-team').on('click', function(event) {

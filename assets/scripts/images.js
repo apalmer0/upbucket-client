@@ -89,10 +89,10 @@ let imageUpload = function imageUpload(event) {
   });
 };
 
-let moveImage = function moveImage(event) {
+let editImage = function editImage(event) {
   event.preventDefault();
-  let imageId = $('.move-image-submit')[0].dataset.imageId.toString();
-  console.log('starting moveImage');
+  let imageId = $('.edit-image-submit')[0].dataset.imageId.toString();
+  console.log('starting editImage');
   console.log('image id: '+imageId);
   console.log(event.target);
   console.log('going to:'+$('#inputDirectory6').val());
@@ -107,7 +107,7 @@ let moveImage = function moveImage(event) {
     processData: false,
     data: formData
   }).done(function (data) {
-    console.log('moveImage success');
+    console.log('editImage success');
     console.log(data);
   }).fail(function (jqxhr) {
     console.log('shit\'s on fire, yo');
@@ -130,7 +130,7 @@ let deleteImage = function deleteImage(event) {
   }).done(function (data) {
     console.log('image deleted');
     console.log(data);
-    $('.image-number-'+imageId).remove();
+    $('.image-number-'+imageId).reedit();
     pageChanges.displayMessage('.file-delete-success');
   }).fail(function (jqxhr) {
     console.log('well that didn\'t work...');
@@ -159,7 +159,7 @@ let openFolder = function openFolder() {
 module.exports = {
   getImages,
   imageUpload,
-  moveImage,
+  editImage,
   deleteImage,
   openFolder
 };
