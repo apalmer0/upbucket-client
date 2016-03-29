@@ -104,8 +104,15 @@ $('.glyphicon-folder-open').on('click', function(){
 });
 
 $('.files-table').on('click', '.edit-image-button', function(event) {
-  $('.edit-file-name').text(event.target.dataset.fileName);
-  $('#inputDirectory5').val(event.target.dataset.fileFolder);
+  console.log(event.target.dataset);
+  $('.edit-image-name').text(event.target.dataset.fileName);
+  $('.edit-image-comment').text(event.target.dataset.imageComment);
+  $('.edit-image-tags').text(event.target.dataset.imageTags);
+  $('.edit-image-folder').text(event.target.dataset.imageFolder);
+  $('.edit-image-name').val(event.target.dataset.fileName);
+  $('.edit-image-comment').val(event.target.dataset.imageComment);
+  $('.edit-image-tags').val(event.target.dataset.imageTags);
+  $('.edit-image-folder').val(event.target.dataset.imageFolder);
   $('.edit-image-submit').attr('data-image-id', event.target.dataset.imageId);
 });
 

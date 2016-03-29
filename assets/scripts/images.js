@@ -109,6 +109,7 @@ let editImage = function editImage(event) {
   }).done(function (data) {
     console.log('editImage success');
     console.log(data);
+    pageChanges.hideModal();
   }).fail(function (jqxhr) {
     console.log('shit\'s on fire, yo');
     console.error(jqxhr);
