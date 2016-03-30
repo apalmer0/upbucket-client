@@ -83,6 +83,7 @@ let imageUpload = function imageUpload(event) {
     console.log(data);
     $('.file-upload').val('');
     pageChanges.displayMessage('.file-upload-success');
+    getImages(event);
   }).fail(function (jqxhr) {
     console.log('shit\'s on fire, yo');
     console.error(jqxhr);
