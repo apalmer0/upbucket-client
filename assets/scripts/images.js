@@ -110,6 +110,8 @@ let editImage = function editImage(event) {
     console.log('editImage success');
     console.log(data);
     pageChanges.hideModal();
+    getImages(event);
+    pageChanges.displayMessage('.file-edit-success');
   }).fail(function (jqxhr) {
     console.log('shit\'s on fire, yo');
     console.error(jqxhr);
