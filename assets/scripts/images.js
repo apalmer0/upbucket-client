@@ -145,9 +145,9 @@ let deleteImage = function deleteImage(event) {
 let openFolder = function openFolder() {
   let folderName = event.target.dataset.folderName.replace('_',' ');
   let images = [];
-  for (let i = 0; i < globalVariables.ownedImages.length; i++) {
-    if (folderName === globalVariables.ownedImages[i].folder[0]) {
-      images.push(globalVariables.ownedImages[i]);
+  for (let i = 0; i < globalVariables.userImages.length; i++) {
+    if (folderName === globalVariables.userImages[i].folder[0]) {
+      images.push(globalVariables.userImages[i]);
     }
   }
   if (images) {
