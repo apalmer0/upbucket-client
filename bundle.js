@@ -502,7 +502,7 @@ webpackJsonp([0],[
 	  }).done(function (data) {
 	    console.log('image deleted');
 	    console.log(data);
-	    $('.image-number-' + imageId).reedit();
+	    $('.image-number-' + imageId).remove();
 	    pageChanges.displayMessage('.file-delete-success');
 	  }).fail(function (jqxhr) {
 	    console.log('well that didn\'t work...');
