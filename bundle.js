@@ -513,9 +513,9 @@ webpackJsonp([0],[
 	var openFolder = function openFolder() {
 	  var folderName = event.target.dataset.folderName.replace('_', ' ');
 	  var images = [];
-	  for (var i = 0; i < globalVariables.ownedImages.length; i++) {
-	    if (folderName === globalVariables.ownedImages[i].folder[0]) {
-	      images.push(globalVariables.ownedImages[i]);
+	  for (var i = 0; i < globalVariables.userImages.length; i++) {
+	    if (folderName === globalVariables.userImages[i].folder[0]) {
+	      images.push(globalVariables.userImages[i]);
 	    }
 	  }
 	  if (images) {
