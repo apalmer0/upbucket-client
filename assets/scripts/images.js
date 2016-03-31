@@ -19,16 +19,20 @@ let getImages = function getImages(event) {
   event.preventDefault();
   $('.level-zero').text('All Folders');
   $('.user-actions').show();
-  var formData = new FormData(event.target);
+  // var formData = new FormData(event.target);
   console.log('starting getImages');
+  console.log(globalVariables.user._id);
   $.ajax({
     url: globalVariables.baseUrl + '/images',
+    headers: {
+      Authorization: 'Token token=' + globalVariables.user.token,
+    },
     method: 'GET',
     contentType: false,
     processData: false,
-    data: formData,
-  }).done(function (imagesCollection) {
-    console.log(imagesCollection);
+    data: {id:'56e5725b4ea95b7f12a9d61d'},
+  }).done(function (userImages) {
+    console.log(userImages);
     console.log('getImages success');
     $('.homepage').hide();
     $('.edit-user').hide();
@@ -38,16 +42,12 @@ let getImages = function getImages(event) {
     $('.level-one').text('');
     $('.file-storage').show();
     $('.people-directory').hide();
-    let ownedImages = [];
-    for (let i = 0; i < imagesCollection.images.length; i++) {
-      if (imagesCollection.images[i]._owner === globalVariables.user._id) {
-        ownedImages.push(imagesCollection.images[i]);
-      }
-    }
-    let imagesObject = { ownedImages: ownedImages };
+
+    let imagesObject = { userImages: userImages.images };
     Object.assign(globalVariables, imagesObject);
-    if (imagesObject.ownedImages.length) {
-      let folders = uniqueFolders(ownedImages);
+
+    if (globalVariables.userImages.length) {
+      let folders = uniqueFolders(globalVariables.userImages);
       for (let i = 0; i < folders.length; i++) {
         // people might put spaces into their folder names, which is no bueno if you're trying
         // to concatenate them into data attributes. this line swaps out a space for an underscore so it
@@ -83,16 +83,17 @@ let imageUpload = function imageUpload(event) {
     console.log(data);
     $('.file-upload').val('');
     pageChanges.displayMessage('.file-upload-success');
+    getImages(event);
   }).fail(function (jqxhr) {
     console.log('shit\'s on fire, yo');
     console.error(jqxhr);
   });
 };
 
-let moveImage = function moveImage(event) {
+let editImage = function editImage(event) {
   event.preventDefault();
-  let imageId = $('.move-image-submit')[0].dataset.imageId.toString();
-  console.log('starting moveImage');
+  let imageId = $('.edit-image-submit')[0].dataset.imageId.toString();
+  console.log('starting editImage');
   console.log('image id: '+imageId);
   console.log(event.target);
   console.log('going to:'+$('#inputDirectory6').val());
@@ -107,8 +108,11 @@ let moveImage = function moveImage(event) {
     processData: false,
     data: formData
   }).done(function (data) {
-    console.log('moveImage success');
+    console.log('editImage success');
     console.log(data);
+    pageChanges.hideModal();
+    getImages(event);
+    pageChanges.displayMessage('.file-edit-success');
   }).fail(function (jqxhr) {
     console.log('shit\'s on fire, yo');
     console.error(jqxhr);
@@ -130,7 +134,7 @@ let deleteImage = function deleteImage(event) {
   }).done(function (data) {
     console.log('image deleted');
     console.log(data);
-    $('.image-number-'+imageId).remove();
+    $('.image-number-'+imageId).reedit();
     pageChanges.displayMessage('.file-delete-success');
   }).fail(function (jqxhr) {
     console.log('well that didn\'t work...');
@@ -159,7 +163,7 @@ let openFolder = function openFolder() {
 module.exports = {
   getImages,
   imageUpload,
-  moveImage,
+  editImage,
   deleteImage,
   openFolder
 };

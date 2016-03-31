@@ -75,6 +75,7 @@
             </div>
             <div class="alert alert-success popup-messages password-changed-success" role="alert"><strong>Damn, Daniel!</strong> Back at it again with the new password!</div>
             <div class="alert alert-success popup-messages file-delete-success" role="alert"><strong>File deleted!</strong> That file sucked anyway.</div>
+            <div class="alert alert-success popup-messages file-edit-success" role="alert"><strong>File updated!</strong> I'm sure it's <strong>much</strong> better now.</div>
           </div>
           </ul>
         </div>
@@ -211,38 +212,60 @@
         </div>
       </div>
       <!-- ^^^^ Change password Modal ^^^^ -->
-      <!-- vvvv Move File Modal vvvv -->
-      <div class="modal fade" id="moveImageModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <!-- vvvv Edit File Modal vvvv -->
+      <div class="modal fade" id="editImageModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
-            <form id="move-image" enctype="multipart/form-data">
+            <form id="edit-image" enctype="multipart/form-data">
               <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h2 class="modal-title" id="myModalLabel">Move <span class="move-file-name"></span></h2>
+                <h2 class="modal-title" id="myModalLabel">Edit <span class="edit-image-name"></span></h2>
               </div>
               <div class="modal-body">
-                <div class="form-group row">
-                  <label for="inputDirectory5" class="col-sm-2 form-control-label">Current Directory</label>
-                  <div class="col-sm-10">
-                    <input type="text" class="form-control" id="inputDirectory5" value="">
+                <div class="row edit-image-content">
+                  <div class="col-md-6">
+                    <div>
+                      <span class="image-data">Filename:</span>
+                      <span class="edit-image-data edit-image-name pull-right"></span>
+                    </div>
+                    <div>
+                      <span class="image-data">Comment:</span>
+                      <span class="edit-image-data edit-image-comment pull-right"></span>
+                    </div>
+                    <div>
+                      <span class="image-data">Tags:</span>
+                      <span class="edit-image-data edit-image-tags pull-right"></span>
+                    </div>
+                    <div>
+                      <span class="image-data">Folder:</span>
+                      <span class="edit-image-data edit-image-folder pull-right"></span>
+                    </div>
                   </div>
-                </div>
-                <div class="form-group row">
-                  <label for="inputDirectory6" class="col-sm-2 form-control-label">New Directory</label>
-                  <div class="col-sm-10">
-                    <input type="text" class="form-control" id="inputDirectory6" placeholder="new directory" name="image[folder]" value="">
+                  <div class="col-md-6">
+                    <div>
+                      <input type="text" class="custom-input-form edit-image-name" name="name" value="" placeholder="filename">
+                    </div>
+                    <div>
+                      <input type="text" class="custom-input-form edit-image-comment" name="comment" value="" placeholder="comment">
+                    </div>
+                    <div>
+                      <input type="text" class="custom-input-form edit-image-tags" name="tags[0]" value="" placeholder="tags">
+                    </div>
+                    <div>
+                      <input type="text" class="custom-input-form edit-image-folder" name="folder[0]" value="" placeholder="folder">
+                    </div>
                   </div>
                 </div>
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                <button type="submit" name="submit" class="btn btn-success move-image-submit modal-button">Move file</button>
+                <button type="submit" name="submit" class="btn btn-success edit-image-submit modal-button">Edit file</button>
               </div>
             </form>
           </div>
         </div>
       </div>
-      <!-- ^^^^ Move File Modal ^^^^ -->
+      <!-- ^^^^ Edit File Modal ^^^^ -->
       <!-- vvvv Add folder Modal vvvv -->
       <div class="modal fade" id="addFolderModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog" role="document">

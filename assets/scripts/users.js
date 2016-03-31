@@ -57,9 +57,7 @@ let getUser = function getUser(){
     },
     method: 'GET'
   }).done(function (userData) {
-    globalVariables.user.name.given = userData.user.name.given;
-    globalVariables.user.name.surname = userData.user.name.surname;
-    globalVariables.user.name.email = userData.user.name.email;
+    globalVariables.user = Object.assign(userData.user, { token: globalVariables.user.token });
     $('.user-name').text(userData.user.fullName);
     $('.edit-user-firstName').text(globalVariables.user.name.given);
     $('.edit-user-lastName').text(globalVariables.user.name.surname);
