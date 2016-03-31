@@ -19,16 +19,20 @@ let getImages = function getImages(event) {
   event.preventDefault();
   $('.level-zero').text('All Folders');
   $('.user-actions').show();
-  var formData = new FormData(event.target);
+  // var formData = new FormData(event.target);
   console.log('starting getImages');
+  console.log(globalVariables.user._id);
   $.ajax({
     url: globalVariables.baseUrl + '/images',
+    headers: {
+      Authorization: 'Token token=' + globalVariables.user.token,
+    },
     method: 'GET',
     contentType: false,
     processData: false,
-    data: formData,
-  }).done(function (imagesCollection) {
-    console.log(imagesCollection);
+    data: {id:'56e5725b4ea95b7f12a9d61d'},
+  }).done(function (userImages) {
+    console.log(userImages);
     console.log('getImages success');
     $('.homepage').hide();
     $('.edit-user').hide();
@@ -38,16 +42,12 @@ let getImages = function getImages(event) {
     $('.level-one').text('');
     $('.file-storage').show();
     $('.people-directory').hide();
-    let ownedImages = [];
-    for (let i = 0; i < imagesCollection.images.length; i++) {
-      if (imagesCollection.images[i]._owner === globalVariables.user._id) {
-        ownedImages.push(imagesCollection.images[i]);
-      }
-    }
-    let imagesObject = { ownedImages: ownedImages };
+
+    let imagesObject = { userImages: userImages.images };
     Object.assign(globalVariables, imagesObject);
-    if (imagesObject.ownedImages.length) {
-      let folders = uniqueFolders(ownedImages);
+
+    if (globalVariables.userImages.length) {
+      let folders = uniqueFolders(globalVariables.userImages);
       for (let i = 0; i < folders.length; i++) {
         // people might put spaces into their folder names, which is no bueno if you're trying
         // to concatenate them into data attributes. this line swaps out a space for an underscore so it
