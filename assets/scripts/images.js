@@ -30,7 +30,7 @@ let getImages = function getImages(event) {
     method: 'GET',
     contentType: false,
     processData: false,
-    data: {id:'56e5725b4ea95b7f12a9d61d'},
+    data: {id: globalVariables.user._id},
   }).done(function (userImages) {
     console.log(userImages);
     console.log('getImages success');
@@ -66,9 +66,10 @@ let getImages = function getImages(event) {
 let imageUpload = function imageUpload(event) {
   event.preventDefault();
   $('.upload-owner').val(globalVariables.user._id);
+  console.log(event.target);
   var formData = new FormData(event.target);
   console.log('starting imageUpload');
-  console.log(event.target);
+  console.log(formData);
   $.ajax({
     url: globalVariables.baseUrl + '/images',
     headers: {
